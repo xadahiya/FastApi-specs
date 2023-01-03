@@ -1,0 +1,85 @@
+[tool.poetry]
+name = "hx_gateway"
+version = "0.1.0"
+description = "Hypersonix Gateway"
+authors = ["Akshay Dahiya <xadahiya@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+fastapi = "^0.63.0"
+requests = "^2.25.1"
+python-jose = "^3.2.0"
+uvicorn = "^0.13.4"
+python-dotenv = "^0.17.1"
+pydantic = "^1.8.1"
+PyJWT = "^2.1.0"
+python-multipart = "^0.0.5"
+bcrypt = "^3.2.0"
+cffi = "^1.14.5"
+gunicorn = "^20.1.0"
+passlib = "^1.7.4"
+pycparser = "^2.20"
+httpx = "^0.18.1"
+flake8 = "^3.9.2"
+isort = "^5.8.0"
+pytest = "^6.2.4"
+mypy = "^0.812"
+doc8 = "^0.8.1"
+redis = "^3.5.3"
+pre-commit = "^2.13.0"
+black = "^21.6b0"
+autoflake = "^1.4"
+SQLAlchemy = {version = ">=1.4,<1.4.23", extras = ["mypy"]}
+snowflake-sqlalchemy = "^1.3.1"
+snowflake-connector-python = "^2.6.0"
+pylint = "^2.10.2"
+fastapi-pagination = {extras = ["sqlalchemy"], version = "^0.9.0"}
+python-decouple = "^3.5"
+fastapi-redis-cache = "^0.2.5"
+loguru = "^0.6.0"
+elastic-apm = "^6.12.0"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 120
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | \.env
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+[tool.pylint.MESSAGE_CONTROL]
+disable = """
+    line-too-long,
+    abstract-method,
+    no-member,
+    c-extension-no-member,
+    logging-fstring-interpolation,
+    broad-except,
+    pointless-statement,
+"""
+enable = "useless-suppression"
+
+[tool.pylint.REPORTS]
+reports="no"
+
+[tool.pylint.FORMAT]
+max-line-length="120"
+
+[tool.pylint.BASIC]
+good-names = "_,setUp,tearDown,maxDiff"
